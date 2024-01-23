@@ -1,5 +1,11 @@
 # Prerequisites
 *.d
+out/*
+build/*
+.vscode/settings.json
+.settings
+.venv
+*.pyc
 
 # Object files
 *.o
