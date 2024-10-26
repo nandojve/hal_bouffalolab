@@ -18,36 +18,16 @@
   * @{
   */
 
-#ifdef ARCH_ARM
-#define IRQ_NUM_BASE 0
-#endif
-
-#ifdef ARCH_RISCV
 #define IRQ_NUM_BASE 16
-#endif
 /**
  * @brief BL602 Interrupt Number Definition, according to the selected device
  *        in @ref Library_configuration_section
  */
 typedef enum {
-#ifdef ARCH_ARM
-    /******  Cortex-M4 Processor Exceptions Numbers ****************************************************************/
-    NonMaskableInt_IRQn = -14,   /*!< 2 Cortex-M4 Non Maskable Interrupt                                */
-    HardFault_IRQn = -13,        /*!< 3 Cortex-M4 Hard Fault Interrupt                                  */
-    MemoryManagement_IRQn = -12, /*!< 4 Cortex-M4 Memory Management Interrupt                           */
-    BusFault_IRQn = -11,         /*!< 5 Cortex-M4 Bus Fault Interrupt                                   */
-    UsageFault_IRQn = -10,       /*!< 6 Cortex-M4 Usage Fault Interrupt                                 */
-    SVCall_IRQn = -5,            /*!< 11 Cortex-M4 SV Call Interrupt                                    */
-    DebugMonitor_IRQn = -4,      /*!< 12 Cortex-M4 Debug Monitor Interrupt                              */
-    PendSV_IRQn = -2,            /*!< 14 Cortex-M4 Pend SV Interrupt                                    */
-    SysTick_IRQn = -1,           /*!< 15 Cortex-M4 System Tick Interrupt                                */
-#endif
-#ifdef ARCH_RISCV
     MSOFT_IRQn = 3,           /*!< 3 RISCV machine software Interrupt                                */
     MTIME_IRQn = 7,           /*!< 7 RISCV machine time Interrupt                                    */
     MEXT_IRQn = 11,           /*!< 11 RISCV external  Interrupt                                      */
     CLIC_SOFT_PEND_IRQn = 12, /*!< 12 RISCV CLIC software pending  Interrupt                         */
-#endif
     /******  BL602 specific Interrupt Numbers **********************************************************************/
     BMX_ERR_IRQn = IRQ_NUM_BASE + 0,          /*!< BMX Error Interrupt                                               */
     BMX_TO_IRQn = IRQ_NUM_BASE + 1,           /*!< BMX Timeout Interrupt                                             */

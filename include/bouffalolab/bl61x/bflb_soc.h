@@ -27,19 +27,16 @@
   * @{
   */
 
-#ifdef ARCH_RISCV
 #if (__riscv_xlen == 64)
 #define IRQ_NUM_BASE 16 /* PLIC ===> MEXT_IRQn */
 #else
 #define IRQ_NUM_BASE 16
-#endif
 #endif
 /**
  * @brief BL616 Interrupt Number Definition, according to the selected device
  *        in @ref Library_configuration_section
  */
 typedef enum {
-#ifdef ARCH_RISCV
     SSOFT_IRQn = 1,           /*!< 1 RISCV supervisor software Interrupt                             */
     MSOFT_IRQn = 3,           /*!< 3 RISCV machine software Interrupt                                */
     STIME_IRQn = 5,           /*!< 5 RISCV supervisor time Interrupt                                 */
@@ -49,7 +46,6 @@ typedef enum {
     CLIC_SOFT_PEND_IRQn = 12, /*!< 12 RISCV CLIC software pending  Interrupt                         */
 #if (__riscv_xlen == 64)
     HPM_OVF_IRQn = 17, /*!< 17 RISCV HPM counter overflow Interrupt                           */
-#endif
 #endif
     /******  BL616 specific Interrupt Numbers **********************************************************************/
     BMX_MCU_BUS_ERR_IRQn = IRQ_NUM_BASE + 0,                    /*!< bmx mcu bus_err_int Interrupt                                     */
